@@ -1,0 +1,25 @@
+#trackXP_bar{
+	position:fixed;
+	top:0;
+	right:0;	
+	border:3px solid red;
+	background-color : rgba(255,255,255,0.5);
+	z-index:2000;
+	height:100%;
+}
+
+#trackXP_bar.big_bar{
+	width:15%;
+}
+
+#trackXP_bar.small_bar{
+	width:50px;
+}
+
+.close-button, .open-button{
+	font-size:24px;
+}
+
+.bar-event{
+	margin:30px;
+}

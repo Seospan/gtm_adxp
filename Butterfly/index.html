@@ -11,6 +11,7 @@
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
 <link href="css/animate.css" rel="stylesheet" type="text/css">
+<link href="css/trackxp.css" rel="stylesheet" type="text/css">
 
 <link href="http://fonts.googleapis.com/css?family=Lato:400,900,700,700italic,400italic,300italic,300,100italic,100,900italic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Dosis:400,500,700,800,600,300,200" rel="stylesheet" type="text/css">
@@ -313,14 +314,14 @@ function resizeText() {
       }
     );
     wow.init();
-    document.getElementById('').onclick = function() {
+    /*document.getElementById('').onclick = function() {
       var section = document.createElement('section');
       section.className = 'wow fadeInDown';
 	  section.className = 'wow shake';
 	  section.className = 'wow zoomIn';
 	  section.className = 'wow lightSpeedIn';
       this.parentNode.insertBefore(section, this);
-    };
+    };*/
   </script> 
 <script type="text/javascript">
 	$(window).load(function(){
@@ -339,7 +340,28 @@ function resizeText() {
 			*/
 			event.preventDefault();
 		});
-	})
+	});
+	
+	$(document).ready(function(e) {
+	window.onload = function(){ 
+        $('body').append("<div id='trackXP_bar' class='big_bar'><div>");
+        $('#trackXP_bar').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>');
+		$('#trackXP_bar').on('click','.close-button',function(){
+			$('#trackXP_bar').addClass("small_bar").removeClass("big_bar");
+			$('#trackXP_bar .close-button').remove();
+			$('#trackXP_bar').append('<i class="open-button fa fa-chevron-circle-left" aria-hidden="true"></i>')
+		});
+		$('#trackXP_bar').on('click','.open-button',function(){
+			$('#trackXP_bar').addClass("big_bar").removeClass("small_bar");
+			$('#trackXP_bar .open-button').remove();
+			$('#trackXP_bar').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>')
+		});
+		function addEvent(color,title,message){
+			$('#trackXP_bar').append('<div class="bar-event" style="background-color:'+color+'"><h3>'+title+'</h3><div class="event_inner">'+message+'</div></div>');
+		}
+		addEvent('red','Test title','massage');
+	};
+    });
 </script>
 </body>
 </html>
