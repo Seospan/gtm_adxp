@@ -2,7 +2,7 @@
 	position:fixed;
 	top:0;
 	right:0;	
-	border:3px solid red;
+	border:1px solid #999;
 	background-color : rgba(255,255,255,0.5);
 	z-index:2000;
 	height:100%;
@@ -13,13 +13,69 @@
 }
 
 #trackXP_bar.small_bar{
-	width:50px;
+	width:5%;
+}
+
+#trackXP_bar .bar-top{
+	height:30px;
 }
 
 .close-button, .open-button{
 	font-size:24px;
+	position:fixed;
+	margin:5px;
+}
+
+.bar-event.red{
+	background-color:#EA4335;
+	color:#fff;
+}
+
+.bar-event.green{
+	background-color:#34A853;
+	color:#fff;
+}
+
+.bar-event.blue{
+	background-color:#4285F4;
+	color:#fff;
+}
+
+.bar-event.yellow{
+	background-color:#FBBC05;
+	color:#fff;
 }
 
 .bar-event{
-	margin:30px;
+	margin:3px;
+	padding:8px;
+}
+
+/*big bar*/
+.big_bar .bar-event{
+}
+
+.big_bar .datetime{
+	float:right;
+	font-size:12px;
+}
+
+.big_bar h3{
+	float:left;
+} 
+
+/*small bar*/
+.small_bar .bar-event{	
+}
+
+.small_bar .bar-event .event-message{
+	display:none;
+}
+
+.small_bar .datetime{
+	display:none;
+}
+
+.small_bar .bar-event h3{
+	text-align:center;
 }

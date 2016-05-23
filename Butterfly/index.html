@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="js/wow.js"></script>
 <script type="text/javascript" src="js/classie.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
 
 <!--[if lt IE 9]>
     <script src="js/respond-1.1.0.min.js"></script>
@@ -345,21 +346,24 @@ function resizeText() {
 	$(document).ready(function(e) {
 	window.onload = function(){ 
         $('body').append("<div id='trackXP_bar' class='big_bar'><div>");
-        $('#trackXP_bar').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>');
-		$('#trackXP_bar').on('click','.close-button',function(){
+        $('#trackXP_bar').append('<div class="bar-top"></div>');
+        $('#trackXP_bar .bar-top').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>');
+		$('#trackXP_bar .bar-top').on('click','.close-button',function(){
 			$('#trackXP_bar').addClass("small_bar").removeClass("big_bar");
-			$('#trackXP_bar .close-button').remove();
-			$('#trackXP_bar').append('<i class="open-button fa fa-chevron-circle-left" aria-hidden="true"></i>')
+			$('#trackXP_bar .bar-top .close-button').remove();
+			$('#trackXP_bar .bar-top').append('<i class="open-button fa fa-chevron-circle-left" aria-hidden="true"></i>')
 		});
-		$('#trackXP_bar').on('click','.open-button',function(){
+		$('#trackXP_bar .bar-top').on('click','.open-button',function(){
 			$('#trackXP_bar').addClass("big_bar").removeClass("small_bar");
-			$('#trackXP_bar .open-button').remove();
-			$('#trackXP_bar').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>')
+			$('#trackXP_bar .bar-top .open-button').remove();
+			$('#trackXP_bar .bar-top').append('<i class="close-button fa fa-chevron-circle-right" aria-hidden="true"></i>')
 		});
 		function addEvent(color,title,message){
-			$('#trackXP_bar').append('<div class="bar-event" style="background-color:'+color+'"><h3>'+title+'</h3><div class="event_inner">'+message+'</div></div>');
+			var today = moment().format('DD/MM/YYYY-HH:mm:ss');
+			$('#trackXP_bar').append('<div class="bar-event '+color+'"><h3>'+title+'</h3><span class="datetime">'+today+'</span><div style="clear:both"></div><div class="event-message">'+message+'</div></div>');
 		}
-		addEvent('red','Test title','massage');
+		addEvent('green','Test title','message test');
+		addEvent('yellow','Test title2','message test2');
 	};
     });
 </script>
